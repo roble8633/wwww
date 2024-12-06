@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, ActivityIndicator, Alert, Image } f
 import { TextInput, GestureHandlerRootView } from "react-native-gesture-handler";
 import { ref, get } from "firebase/database";
 import { db } from '../firebase/firebaseConfig';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // Import AsyncStorage
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
 export default function LogIn({ navigation }) {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ export default function LogIn({ navigation }) {
         const userData = snapshot.val();
         if (userData.password === password) {
           Alert.alert('Enjoy Listening!', 'Successfully logged in!');
-          // Store the logged-in email in AsyncStorage
+        
           try {
             await AsyncStorage.setItem('loggedInEmail', email); 
           } catch (error) {

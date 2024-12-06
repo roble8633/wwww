@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert, Modal, Pressable } from 'react-native';
-import { Audio } from 'expo-av'; // Make sure to install expo-av if you're using Expo
-import { Ionicons } from '@expo/vector-icons'; // Make sure to install expo vector icons
+import { Audio } from 'expo-av'; 
+import { Ionicons } from '@expo/vector-icons'; 
 
 const AudioList = () => {
   const [sound, setSound] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const [currentTrackTitle, setCurrentTrackTitle] = useState(''); // New state for current track title
+  const [currentTrackTitle, setCurrentTrackTitle] = useState(''); 
   const [tracks, setTracks] = useState([
     {
       title: 'Radiohead - No Surprises',
@@ -48,6 +48,46 @@ const AudioList = () => {
     {
       title: 'Rob Deniel - Ulap',
       audio: require('../assets/Rob Deniel - Ulap.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Sunsetz',
+      audio: require('../assets/Cigarettes After Sex - Sunsetz.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Cry',
+      audio: require('../assets/Cigarettes After Sex - Cry.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Apocalypse',
+      audio: require('../assets/Cigarettes After Sex - Apocalypse.mp3'),
+    },
+    {
+      title: 'LANY - You!',
+      audio: require('../assets/LANY - You!.mp3'),
+    },
+    {
+      title: 'LANY - Super Far',
+      audio: require('../assets/LANY - Super Far.mp3'),
+    },
+    {
+      title: 'LANY - Thick and Thin',
+      audio: require('../assets/LANY - Thick and Thin.mp3'),
+    },
+    {
+      title: 'LANY - ILYSB',
+      audio: require('../assets/LANY - ILYSB.mp3'),
+    },
+    {
+      title: 'LANY - Malibu Night',
+      audio: require('../assets/LANY - Malibu Night.mp3'),
+    },
+    {
+      title: 'LANY - 13',
+      audio: require('../assets/LANY - 13.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Heavenly',
+      audio: require('../assets/Cigarettes After Sex - Heavenly.mp3'),
     },
   ]);
   const [modalVisible, setModalVisible] = useState(false);
@@ -212,21 +252,21 @@ const AudioList = () => {
         </View>
       </Modal>
 
-      {/* Now Playing Section */}
+     
       <View style={styles.nowPlayingContainer}>
-  <Text style={styles.nowPlayingText}>Now Playing:</Text>
-  <View style={styles.currentTrackContainer}>
-  <TouchableOpacity onPress={handlePause}>
+        <Text style={styles.nowPlayingText}>Now Playing:</Text>
+        <View style={styles.currentTrackContainer}>
+        <TouchableOpacity onPress={handlePause}>
           {isPlaying ? (
             <Ionicons name="pause" size={40} color="black" />
           ) : (
             <Ionicons name="play" size={40} color="black" onPress={handlePlay} />
           )}
-    </TouchableOpacity>
-    <Text style={styles.currentTrackTitle}>{currentTrackTitle || 'None'}</Text>
-  </View>
-</View>
+          </TouchableOpacity>
+        <Text style={styles.currentTrackTitle}>{currentTrackTitle || 'None'}</Text>
+      </View>
     </View>
+  </View>
   );
 };
 

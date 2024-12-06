@@ -62,6 +62,46 @@ const Player = () => {
       artist: 'Rob Deniel',
       audio: require('../assets/Rob Deniel - Ulap.mp3'),
     },
+    {
+      title: 'Cigarettes After Sex - Sunsetz',
+      audio: require('../assets/Cigarettes After Sex - Sunsetz.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Cry',
+      audio: require('../assets/Cigarettes After Sex - Cry.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Apocalypse',
+      audio: require('../assets/Cigarettes After Sex - Apocalypse.mp3'),
+    },
+    {
+      title: 'LANY - You!',
+      audio: require('../assets/LANY - You!.mp3'),
+    },
+    {
+      title: 'LANY - Super Far',
+      audio: require('../assets/LANY - Super Far.mp3'),
+    },
+    {
+      title: 'LANY - Thick and Thin',
+      audio: require('../assets/LANY - Thick and Thin.mp3'),
+    },
+    {
+      title: 'LANY - ILYSB',
+      audio: require('../assets/LANY - ILYSB.mp3'),
+    },
+    {
+      title: 'LANY - Malibu Night',
+      audio: require('../assets/LANY - Malibu Night.mp3'),
+    },
+    {
+      title: 'LANY - 13',
+      audio: require('../assets/LANY - 13.mp3'),
+    },
+    {
+      title: 'Cigarettes After Sex - Heavenly',
+      audio: require('../assets/Cigarettes After Sex - Heavenly.mp3'),
+    },
   ]);
 
   useEffect(() => {

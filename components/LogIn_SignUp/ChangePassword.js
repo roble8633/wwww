@@ -72,13 +72,13 @@ const ChangePassword = ({ navigation }) => {
       const snapshot = await get(userRef);
       const userData = snapshot.val();
 
-      // Check if the current password is correct
+      
       if (userData.password !== currentPassword) {
         Alert.alert("Error", "Current password is incorrect.");
         return;
       }
 
-      // Update the password in the Realtime Database
+      
       await update(userRef, { password: newPassword });
 
       Alert.alert("Success", "Password updated successfully.");

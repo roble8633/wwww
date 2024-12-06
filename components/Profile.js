@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { auth, db } from './firebase/firebaseConfig'; 
-import { ref, get } from 'firebase/database';
+import { auth } from './firebase/firebaseConfig'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Profile = ({ navigation }) => {
