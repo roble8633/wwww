@@ -53,7 +53,7 @@ const Profile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.prof}>Profile</Text>
-      <Ionicons name="person-circle-sharp" size={120} color="white" />
+      <Ionicons name="person-circle-sharp" size={150} color="white" />
       <Text style={styles.hel}>Hello!</Text>
       <Text style={styles.hel1}>dear user,</Text>
       <Text style={styles.userEmail}>{userEmail}</Text> 
@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   gg: {
-    marginTop: 40,
+    marginTop: '35%',
     marginBottom: -10,
     backgroundColor: '#66A5AD',
     padding: 10,

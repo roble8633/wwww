@@ -122,7 +122,7 @@ const Player = () => {
       setIsPlaying(true);
       await newSound.setVolumeAsync(volume); 
 
-      // Update current track title
+      
       setCurrentTrackTitle(tracks[currentTrackIndex].title); 
 
     } catch (error) {
@@ -151,17 +151,25 @@ const Player = () => {
   };
 
   const handlePrevious = () => {
-    if (currentTrackIndex > 0) {
-      setCurrentTrackIndex(currentTrackIndex - 1);
-      playSound(); 
-    }
+    setCurrentTrackIndex((prevIndex) => {
+      let newIndex = prevIndex - 1;
+      if (newIndex < 0) {
+        newIndex = tracks.length - 1;
+      }
+      return newIndex;
+    });
+    playSound();
   };
 
   const handleNext = () => {
-    if (currentTrackIndex < tracks.length - 1) { 
-      setCurrentTrackIndex(currentTrackIndex + 1);
-      playSound(); 
-    }
+    setCurrentTrackIndex((prevIndex) => {
+      let newIndex = prevIndex + 1;
+      if (newIndex >= tracks.length) {
+        newIndex = 0;
+      }
+      return newIndex;
+    });
+    playSound();
   };
 
   const handleVolumeChange = async (newVolume) => {

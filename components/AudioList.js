@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
   modalView: {
     marginTop: 200,
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#66A5AD',
     borderRadius: 10,
     padding: 20,
     alignItems: 'center',
@@ -325,12 +325,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'white'
   },
   button: {
     borderRadius: 10,
     padding: 10,
     elevation: 2,
-    backgroundColor: '#2196F3',
+    backgroundColor: '#007d92',
     marginVertical: 5,
     width: '80%',
     alignItems: 'center',
@@ -340,7 +341,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cancelButton: {
-    backgroundColor: 'red',
+    backgroundColor: '#FF4D4D',
   },
   nowPlayingContainer: {
     marginTop: 5,
