@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { auth } from './firebase/firebaseConfig'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Profile = ({ navigation }) => {
@@ -38,7 +37,7 @@ const Profile = ({ navigation }) => {
         {
           text: "Yes",
           onPress: () => {
-            auth.signOut();
+           
             navigation.reset({
               index: 0,
               routes: [{ name: 'LogIn' }],

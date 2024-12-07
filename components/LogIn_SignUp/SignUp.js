@@ -4,10 +4,16 @@ import { TextInput, GestureHandlerRootView } from "react-native-gesture-handler"
 import { ref, set, get } from "firebase/database";
 import { db, auth } from '../firebase/firebaseConfig'; 
 import { createUserWithEmailAndPassword } from "firebase/auth"; 
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function SignUp({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSecureEntry, setIsSecureEntry] = useState(true);
+
+  const toggleSecureEntry = () => {
+    setIsSecureEntry(!isSecureEntry);
+  };
 
   async function handleSignUp() {
     const sanitizedEmail = email.replace(/[.#$[\]]/g, '');
@@ -44,21 +50,34 @@ export default function SignUp({ navigation }) {
       <Image source={require('../../assets/logo2.png')} style={styles.logo} />
       <Text style={styles.sig}>Sign up here!</Text>
 
-      <Text style={styles.cre}>Email</Text>
-      <TextInput 
-        value={email} 
-        onChangeText={setEmail} 
-        placeholder="Enter your email/username (e.g marlou@02)" 
-        style={styles.textBoxes} 
+      <Text style={styles.cred}>Email</Text>
+      <TextInput
+        value={email}
+        onChangeText={setEmail}
+        placeholder="Enter your email"
+        style={styles.textBoxes}
+        autoCapitalize="none" 
       />
-      <Text style={styles.cre}>Password</Text>
-      <TextInput 
-        value={password} 
-        onChangeText={setPassword} 
-        placeholder="Enter a 6 character password" 
-        style={styles.textBoxes} 
-        secureTextEntry 
-      />
+      <Text style={styles.cred}>Password</Text>
+      <View style={styles.passwordContainer}> 
+        <TextInput 
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Enter your password"
+          style={styles.En}
+          secureTextEntry={isSecureEntry}
+        />
+        <TouchableOpacity 
+          style={styles.eyeIconContainer} 
+          onPress={toggleSecureEntry}
+        >
+          <Ionicons 
+            name={isSecureEntry ? 'eye-off' : 'eye'} 
+            size={20} 
+            color="gray" 
+          />
+        </TouchableOpacity>
+      </View>
       <TouchableOpacity style={styles.buttonContainer} onPress={handleSignUp}>
         <Text style={styles.button}>Sign Up</Text>
       </TouchableOpacity>
@@ -78,6 +97,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '90%',
+    borderColor: 'white',
+    borderWidth: 0.2,
+    borderRadius: 5,
+    marginBottom: 10,
+    backgroundColor: 'white',
+  },
+  eyeIconContainer: {
+    position: 'absolute', 
+    right: 10, 
+  },
+  En:{
+    fontSize: 17,
+    marginLeft: 7,
+  },
+  cred:{
+    textAlign: 'center',
+    fontSize: 17,
+    color: 'white',
+    fontWeight: 'bold', 
+    marginBottom: 10,
+  }, 
   logo: {
     width: 250, 
     height: 250, 
@@ -89,21 +133,15 @@ const styles = StyleSheet.create({
     marginBottom: 20, 
     fontSize: 15, 
   },
-  cre: {
-    textAlign: 'center',
-    fontSize: 17,
-    color: 'white',
-    fontWeight: 'bold', 
-    marginBottom: 10,
-  },
   textBoxes: {
     width: '90%',
-    fontSize: 15,
+    fontSize: 17,
     padding: 12,
     backgroundColor: 'white',
     borderWidth: 0.2,
     borderRadius: 5,
     marginBottom: 10,
+    
   },
   buttonContainer: {
     marginTop: 20,

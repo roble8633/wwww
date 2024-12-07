@@ -233,11 +233,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   al:{
-    width: 250, 
-    height: 250, 
-    marginTop: '30%',
-    marginBottom: 10,
-    borderRadius: 20, 
+    width: 280, 
+    height: 280, 
+    marginTop: '20%',
+    borderRadius: 30, 
   },
   songTitle: {
     fontSize: 18,
@@ -250,9 +249,9 @@ const styles = StyleSheet.create({
   controls: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '80%',
+    width: '90%',
     backgroundColor: 'white', 
-    padding: 10,
+    padding: 15,
     margin: 10,
     marginTop: '5%',
     borderRadius: 10,

@@ -96,7 +96,10 @@ const DeleteAccount = ({ navigation }) => {
       await AsyncStorage.removeItem('loggedInEmail');
 
       Alert.alert("Success", "Account deleted successfully.");
-      navigation.navigate('LogIn');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'LogIn' }],
+      });
     } catch (error) {
       console.error(error);
       Alert.alert("Error", "An error occurred during account deletion."); 

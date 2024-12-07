@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { ref, get, update } from 'firebase/database';
-import { db } from '../firebase/firebaseConfig';
+import { db, auth } from '../firebase/firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ChangePassword = ({ navigation }) => {
@@ -79,7 +79,7 @@ const ChangePassword = ({ navigation }) => {
       }
 
       
-      await update(userRef, { password: newPassword });
+      await update(userRef, { password: newPassword }, auth);
 
       Alert.alert("Success", "Password updated successfully.");
       navigation.goBack();

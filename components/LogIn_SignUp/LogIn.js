@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, ActivityIndicator, Alert, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, ActivityIndicator, Alert, Image, View } from "react-native";
 import { TextInput, GestureHandlerRootView } from "react-native-gesture-handler";
 import { ref, get } from "firebase/database";
 import { db } from '../firebase/firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function LogIn({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isSecureEntry, setIsSecureEntry] = useState(true);
+
+  const toggleSecureEntry = () => {
+    setIsSecureEntry(!isSecureEntry);
+  };
 
   async function handleLogin() { 
     const sanitizedEmail = email.replace(/[.#$[\]]/g, '');
@@ -59,13 +65,25 @@ export default function LogIn({ navigation }) {
         autoCapitalize="none" 
       />
       <Text style={styles.cred}>Password</Text>
-      <TextInput
-        value={password}
-        onChangeText={setPassword}
-        placeholder="Enter your password"
-        style={styles.textBoxes}
-        secureTextEntry
-      />
+      <View style={styles.passwordContainer}> 
+        <TextInput 
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Enter your password"
+          style={styles.En}
+          secureTextEntry={isSecureEntry}
+        />
+        <TouchableOpacity 
+          style={styles.eyeIconContainer} 
+          onPress={toggleSecureEntry}
+        >
+          <Ionicons 
+            name={isSecureEntry ? 'eye-off' : 'eye'} 
+            size={20} 
+            color="gray" 
+          />
+        </TouchableOpacity>
+      </View>
 
       {loading ? (
         <ActivityIndicator size="large" color="#007BFF" style={styles.loadingIndicator} />
@@ -89,6 +107,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '90%',
+    borderColor: 'white',
+    borderWidth: 0.2,
+    borderRadius: 5,
+    marginBottom: 10,
+    backgroundColor: 'white',
+    
+  },
+  eyeIconContainer: {
+    position: 'absolute', 
+    right: 10, 
+  },
+  En:{
+    fontSize: 17,
+    marginLeft: 7,
+  },
   logo: {
     width: 250, 
     height: 250, 
@@ -110,12 +147,11 @@ const styles = StyleSheet.create({
   textBoxes: {
     width: '90%',
     fontSize: 17,
-    padding: 12,
+    padding: 10,
     borderColor: 'white',
-    borderWidth: 0.2,
     borderRadius: 5,
     marginBottom: 10,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   buttonContainer: {
     marginTop: 20,

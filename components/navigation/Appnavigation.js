@@ -10,11 +10,8 @@ import Player from '../Player';
 const Tab = createBottomTabNavigator();
 
 const Appnavigation = () => {
-  const [playlists, setPlaylists] = useState([]);
 
-  const addPlaylist = (newPlaylist) => {
-    setPlaylists((prevPlaylists) => [...prevPlaylists, newPlaylist]);
-  };
+  
 
   return (
     <Tab.Navigator
