@@ -184,7 +184,7 @@ const Player = () => {
       <Text style={styles.en}>Enjoy listening here in MobiFy!</Text> 
      <Image source={require('../assets/album.jpg')} style={styles.al} /> 
 
-      <Text style={styles.songTitle}>{currentTrackTitle}</Text> 
+      <Text style={styles.songTitle}>{currentTrackTitle || '--No Track--'}</Text> 
 
       <View style={styles.controls}>
         <TouchableOpacity> 
